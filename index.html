@@ -29,8 +29,8 @@
     </style>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
     <link href="css/datepicker.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -38,7 +38,6 @@
   </head>
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -47,7 +46,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">Time Marking</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right slide hidden-phone">
               <a href="#" class="btn-slide"></a>
@@ -57,10 +56,10 @@
           <br class="hidden-phone hidden-tablet">
           <div id="panel" class="row-fluid hidden-phone">
             <div id="tab" class="btn-group" data-toggle="buttons-radio">
-              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong>MAR 9</strong></a>
-              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong>MAR 10</strong></a>
+              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong>MAR 12</strong></a>
+              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong>MAR 13</strong></a>
               <a href="#today" class="btn  btn-info active" data-toggle="tab"><strong>TODAY</strong></a>
-              <a id="dp4" class="btn btn-info" data-date-format="yyyy-mm-dd" data-date="12-02-2012" style="position: relative ; z-index: 999;" ><strong><i class="icon-calendar"></i> CALENDER</strong></a>
+              <a id="dp4" class="btn btn-info" data-date-format="yyyy-mm-dd" data-date="12-02-2012"  ><strong><i class="icon-calendar"></i> CALENDER</strong></a>
             </div>
             <div class="tab-content">
               <div class="tab-pane" id="dbyes"></div>
@@ -79,8 +78,8 @@
                     <option>BFA </option>
                     <option>Advocate Tax</option>
                   </select>
-                  <input type="text" placeholder="Tags or description" class="typeahead1 mr10"  autocomplete="off" data-source="["Design","Coding","User", "Test Case", "Fork"]" class="mr10">
-                  <input type="text" placeholder="Billable/Non-Billable" class="typeahead2 mr10" data-provide="typeahead" auto-complete="off" data-source="["Billable", "non-Billable"]">
+                  <input type="text" placeholder="Tags or description" id="tags" class="mr10">
+                  <input type="text" placeholder="Billable/Non-Billable" id="bill" class="mr10">
                   <a href="" class="btn btn-info mr10"><strong>Log IT</strong></a>
                 </form>            
               </div>
@@ -90,75 +89,6 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <div class="hero-unit">
-            <h1>Time Test!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
-
-      <hr>
-    </div><!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->
@@ -168,6 +98,12 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script type="text/javascript">
 	   $(document).ready(function(){
+        var billtype = ["Billable", "Non-Billable"];
+        $('#bill').typeahead({source: billtype});
+
+        var tagsdesc = ["Design","Coding","User", "Test Case", "Fork"];
+        $('#tags').typeahead({source: tagsdesc});
+
 		    $(".btn-slide").click(function(){
 			    $("#panel").slideToggle("slow");
 			    $(this).toggleClass("active"); return false;
@@ -177,8 +113,6 @@
     <script>
       $(function(){
         $('#dp4').datepicker();
-        $('.typeahead1').typeahead();
-        $('.typeahead2').typeahead();
       });
   </script>
   </body>
