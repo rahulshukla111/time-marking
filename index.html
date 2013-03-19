@@ -36,9 +36,8 @@
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
   </head>
-
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -49,7 +48,7 @@
           <a class="brand" href="#">Time Marking</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right slide hidden-phone">
-              <a href="#" class="btn-slide"></a>
+              <a href="#" class="btn-slide"><i class="icon-arrow-down"></i></a>
             </p>
           </div>
           <br class="hidden-phone hidden-tablet">
@@ -58,8 +57,7 @@
             <div id="tab" class="btn-group" data-toggle="buttons-radio">
               <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong>MAR 12</strong></a>
               <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong>MAR 13</strong></a>
-              <a href="#today" class="btn  btn-info active" data-toggle="tab"><strong>TODAY</strong></a>
-              <a id="dp4" class="btn btn-info" data-date-format="yyyy-mm-dd" data-date="12-02-2012"  ><strong><i class="icon-calendar"></i> CALENDER</strong></a>
+              <a href="#today" id="today" class="btn btn-info active" data-toggle="tab"><strong>TODAY</strong></a>
             </div>
             <div class="tab-content">
               <div class="tab-pane" id="dbyes"></div>
@@ -79,7 +77,12 @@
                     <option>Advocate Tax</option>
                   </select>
                   <input type="text" placeholder="Tags or description" id="tags" class="mr10">
-                  <input type="text" placeholder="Billable/Non-Billable" id="bill" class="mr10">
+                  <label class="radio mr10">
+                    <input type="radio" name="Bill-type" id="" value="" checked> Billable                  
+                  </label>
+                  <label class="radio mr10">
+                    <input type="radio" name="Bill-type" id="" value=""> Non-Billable                  
+                  </label>
                   <a href="" class="btn btn-info mr10"><strong>Log IT</strong></a>
                 </form>            
               </div>
@@ -89,7 +92,6 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -106,14 +108,16 @@
 
 		    $(".btn-slide").click(function(){
 			    $("#panel").slideToggle("slow");
-			    $(this).toggleClass("active"); return false;
+          $("i",this).toggleClass("icon-arrow-down icon-arrow-up");
 		    });
 	   });
     </script>
     <script>
       $(function(){
-        $('#dp4').datepicker();
+        $('#dp4').datepicker({
+        format: 'mm-dd-yyyy',
+        });
       });
-  </script>
+    </script>
   </body>
 </html>

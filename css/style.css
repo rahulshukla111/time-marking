@@ -13,7 +13,6 @@ a:focus {
 	}
 
 .btn-slide{
-	background: url(../img/white-arrow.gif) no-repeat right -50px;
 	text-align: center;
 	width: 30px;
 	height: 20px;
@@ -25,9 +24,6 @@ a:focus {
 	color: #fff;
 	text-decoration: none;
 	z-index: 999;
-}
-.active {
-	background-position: right 12px;
 }
 .mr10{
 	margin-right:10px;
