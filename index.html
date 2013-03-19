@@ -54,18 +54,14 @@
           <br class="hidden-phone hidden-tablet">
           <br class="hidden-phone hidden-tablet">
           <div id="panel" class="row-fluid hidden-phone">
-            <div id="tab" class="btn-group" data-toggle="buttons-radio">
-              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong>MAR 17</strong></a>
-              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong> MAR 18</strong></a>
-              <a href="#today" id="today" class="btn btn-info active" data-toggle="tab"><strong>TODAY</strong></a>
-            </div>
             <div class="tab-content">
-              <div class="tab-pane" id="dbyes">
+              <div class="tab-pane" id="ad2">
                 <strong>HELLO</strong>
               </div>
-              <div class="tab-pane" id="yesterday">
-                <strong>Hi</strong></div>
-              <div class="tab-pane active" id="today">
+              <div class="tab-pane" id="ad1">
+                <strong>Hi</strong>
+              </div>
+              <div class="tab-pane active" id="ad0">
                 <br>
                 <form class="form-inline">
                   <div class="input-append mr10">
@@ -114,8 +110,11 @@
 	    });
     </script>
     <script type="text/javascript">
-      var test = document.getElementById("test");
+      var test = document.getElementById("panel");
       function get_date(i) {
+        if(i==0){
+          return 'Today';
+        }
         var objYes = new Date()
         var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
           "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
@@ -125,11 +124,13 @@
         return string;
       }
       var string = "<div id='tab' class='btn-group' data-toggle='buttons-radio'>"
-      for (var i = 2; i > 0; i--) {
-       string = string + "<a href='ad" + i + "' class='btn btn-info' data-toggle='tab'><strong>" + get_date(i) + "</strong>"
+      for (var i = 2; i >= 0; i--) {
+        if(i==0){string = string + "<a href='#ad" + i + "' class='btn btn-info active' data-toggle='tab'><strong>" + get_date(i) + "</strong></a>";}
+        else{       string = string + "<a href='#ad" + i + "' class='btn btn-info' data-toggle='tab'><strong>" + get_date(i) + "</strong></a>";}
       };
-      string = string + "</div>"
-      document.write(string);
+      string = string + "</div>";
+      console.log(string)
+      test.innerHTML = string;
     </script>
   </body>
 </html>
