@@ -53,13 +53,13 @@
           <br class="hidden-phone hidden-tablet">
           <div id="panel" class="row-fluid hidden-phone">
             <script type="text/javascript">
-              var test = document.getElementById("panel");
-              function get_date(i){
+              function get_date(i) {
                 if(i==0){
                 return 'Today';
                 }
                 var objYes = new Date()
-                var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+                var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
                 curMonth =  months[objYes.getMonth()];
                 var day = objYes.getDate()-i;
                 var string = (+ day + " " + curMonth + " ");
@@ -72,8 +72,8 @@
                 };
                 string = string + "</div>";
                 console.log(string)
-                test.innerHTML = string;
-            </script>
+                document.getElementById("panel").innerHTML = string;
+              </script>
             <div class="tab-content">
               <div class="tab-pane" id="ad2">
                 <strong>HELLO</strong>
