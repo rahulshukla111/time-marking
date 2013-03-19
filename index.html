@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Time Sheet Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/datepicker.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Time Marking</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right slide hidden-phone">
+              <a href="#" class="btn-slide"><i class="icon-arrow-down"></i></a>
+            </p>
+          </div>
+          <br class="hidden-phone hidden-tablet">
+          <br class="hidden-phone hidden-tablet">
+          <div id="panel" class="row-fluid hidden-phone">
+            <div id="tab" class="btn-group" data-toggle="buttons-radio">
+              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong>MAR 12</strong></a>
+              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong>MAR 13</strong></a>
+              <a href="#today" id="today" class="btn btn-info active" data-toggle="tab"><strong>TODAY</strong></a>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane" id="dbyes"></div>
+              <div class="tab-pane" id="yesterday"></div>
+              <div class="tab-pane active" id="today">
+                <br>
+                <form class="form-inline">
+                  <div class="input-append mr10">
+                    <input id="appendedInput" type="text" placeholder="Time" >
+                    <span class="add-on"><strong>Hours</strong></span>
+                  </div>
+                  <select class="mr10" data-placeholder="Client or Project">
+                    <option>Internal </option>
+                    <option>Internal</option>
+                    <option>My Openlabs</option>
+                    <option>BFA </option>
+                    <option>Advocate Tax</option>
+                  </select>
+                  <input type="text" placeholder="Tags or description" id="tags" class="mr10">
+                  <label class="radio mr10">
+                    <input type="radio" name="Bill-type" id="" value="" checked> Billable                  
+                  </label>
+                  <label class="radio mr10">
+                    <input type="radio" name="Bill-type" id="" value=""> Non-Billable                  
+                  </label>
+                  <a href="" class="btn btn-info mr10"><strong>Log IT</strong></a>
+                </form>            
+              </div>
+              <div class="tb-pane" id="calender"></div>
+            </div>
+          </div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+	   $(document).ready(function(){
+        var billtype = ["Billable", "Non-Billable"];
+        $('#bill').typeahead({source: billtype});
+
+        var tagsdesc = ["Design","Coding","User", "Test Case", "Fork"];
+        $('#tags').typeahead({source: tagsdesc});
+
+		    $(".btn-slide").click(function(){
+			    $("#panel").slideToggle("slow");
+          $("i",this).toggleClass("icon-arrow-down icon-arrow-up");
+		    });
+	   });
+    </script>
+    <script>
+      $(function(){
+        $('#dp4').datepicker({
+        format: 'mm-dd-yyyy',
+        });
+      });
+    </script>
+  </body>
+</html>
