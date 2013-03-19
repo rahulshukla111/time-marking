@@ -55,8 +55,8 @@
           <br class="hidden-phone hidden-tablet">
           <div id="panel" class="row-fluid hidden-phone">
             <div id="tab" class="btn-group" data-toggle="buttons-radio">
-              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong>MAR 12</strong></a>
-              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong>MAR 13</strong></a>
+              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong onload="yesterday_date">MAR 17</strong></a>
+              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong onload="day_before">MAR 18</strong></a>
               <a href="#today" id="today" class="btn btn-info active" data-toggle="tab"><strong>TODAY</strong></a>
             </div>
             <div class="tab-content">
@@ -86,7 +86,6 @@
                   <a href="" class="btn btn-info mr10"><strong>Log IT</strong></a>
                 </form>            
               </div>
-              <div class="tb-pane" id="calender"></div>
             </div>
           </div>
         </div><!--/.nav-collapse -->
@@ -99,7 +98,7 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script type="text/javascript">
-	   $(document).ready(function(){
+	    $(document).ready(function(){
         var billtype = ["Billable", "Non-Billable"];
         $('#bill').typeahead({source: billtype});
 
@@ -110,14 +109,25 @@
 			    $("#panel").slideToggle("slow");
           $("i",this).toggleClass("icon-arrow-down icon-arrow-up");
 		    });
-	   });
+	    });
     </script>
-    <script>
-      $(function(){
-        $('#dp4').datepicker({
-        format: 'mm-dd-yyyy',
-        });
-      });
+    <script type="text/javascript">
+      function yesterday_date() {
+        var objYes = new Date()
+        var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+        curMonth =  months[objYes.getMonth()],
+        var day = objYes.getDate()-1,
+        document.write(+ day + " " + curMonth + " ")
+      }
+      function day_before() {
+        var befYes = new Date()
+        var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+        curMonth =  months[befYes.getMonth()],
+        var day = befYes.getDate()-1,
+        document.write(+ day + " " + curMonth + )
+      }
     </script>
   </body>
 </html>
