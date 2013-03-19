@@ -55,13 +55,16 @@
           <br class="hidden-phone hidden-tablet">
           <div id="panel" class="row-fluid hidden-phone">
             <div id="tab" class="btn-group" data-toggle="buttons-radio">
-              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong onload="yesterday_date">MAR 17</strong></a>
-              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong onload="day_before">MAR 18</strong></a>
+              <a href="#dbyes" class="btn btn-info" data-toggle="tab"><strong>MAR 17</strong></a>
+              <a href="#yesterday" class="btn btn-info" data-toggle="tab"><strong> MAR 18</strong></a>
               <a href="#today" id="today" class="btn btn-info active" data-toggle="tab"><strong>TODAY</strong></a>
             </div>
             <div class="tab-content">
-              <div class="tab-pane" id="dbyes"></div>
-              <div class="tab-pane" id="yesterday"></div>
+              <div class="tab-pane" id="dbyes">
+                <strong>HELLO</strong>
+              </div>
+              <div class="tab-pane" id="yesterday">
+                <strong>Hi</strong></div>
               <div class="tab-pane active" id="today">
                 <br>
                 <form class="form-inline">
@@ -73,7 +76,6 @@
                     <option>Internal </option>
                     <option>Internal</option>
                     <option>My Openlabs</option>
-                    <option>BFA </option>
                     <option>Advocate Tax</option>
                   </select>
                   <input type="text" placeholder="Tags or description" id="tags" class="mr10">
@@ -81,7 +83,7 @@
                     <input type="radio" name="Bill-type" id="" value="" checked> Billable                  
                   </label>
                   <label class="radio mr10">
-                    <input type="radio" name="Bill-type" id="" value=""> Non-Billable                  
+                    <input type="radio" name="Bill-type" id="" value="">Non-Billable                  
                   </label>
                   <a href="" class="btn btn-info mr10"><strong>Log IT</strong></a>
                 </form>            
@@ -112,22 +114,22 @@
 	    });
     </script>
     <script type="text/javascript">
-      function yesterday_date() {
+      var test = document.getElementById("test");
+      function get_date(i) {
         var objYes = new Date()
         var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
           "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
-        curMonth =  months[objYes.getMonth()],
-        var day = objYes.getDate()-1,
-        document.write(+ day + " " + curMonth + " ")
+        curMonth =  months[objYes.getMonth()];
+        var day = objYes.getDate()-i;
+        var string = (+ day + " " + curMonth + " ");
+        return string;
       }
-      function day_before() {
-        var befYes = new Date()
-        var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
-        curMonth =  months[befYes.getMonth()],
-        var day = befYes.getDate()-1,
-        document.write(+ day + " " + curMonth + )
-      }
+      var string = "<div id='tab' class='btn-group' data-toggle='buttons-radio'>"
+      for (var i = 2; i > 0; i--) {
+       string = string + "<a href='ad" + i + "' class='btn btn-info' data-toggle='tab'><strong>" + get_date(i) + "</strong>"
+      };
+      string = string + "</div>"
+      document.write(string);
     </script>
   </body>
 </html>
