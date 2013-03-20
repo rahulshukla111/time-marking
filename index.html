@@ -45,44 +45,35 @@
           </button>
           <a class="brand" href="#">Time Marking</a>
           <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right slide hidden-phone">
+            <p class="navbar-text pull-right slide hidden-phone hidden-tablet">
               <a href="#" class="btn-slide"><i class="icon-arrow-down"></i></a>
             </p>
           </div>
           <br class="hidden-phone hidden-tablet">
           <br class="hidden-phone hidden-tablet">
-          <div id="panel" class="row-fluid hidden-phone">
+          <div id="panel" class="row-fluid hidden-phone hidden-tablet">
             <script type="text/javascript">
               function get_date(i) {
                 if(i==0){
                 return 'Today';
                 }
                 var objYes = new Date()
-                var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-                "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
+                var months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
                 curMonth =  months[objYes.getMonth()];
                 var day = objYes.getDate()-i;
                 var string = (+ day + " " + curMonth + " ");
                 return string;
                 }
-                var string = "<div id='tab' class='btn-group' data-toggle='buttons-radio'>"
+                var string = "<div class='btn-group' data-toggle='buttons-radio'>"
                 for (var i = 2; i >= 0; i--) {
-                if(i==0){string = string + "<a href='#ad" + i + "' class='btn btn-info active' data-toggle='tab'><strong>" + get_date(i) + "</strong></a>";}
-                else{       string = string + "<a href='#ad" + i + "' class='btn btn-info' data-toggle='tab'><strong>" + get_date(i) + "</strong></a>";}
+                if(i==0){string = string + "<button class='btn btn-info active' name='time' value='"+ get_date(i) +"'><strong>" + get_date(i) + "</strong></button>";}
+                else{       string = string + "<button class='btn btn-info' name='time' value='" + get_date(i) + "'><strong>" + get_date(i) + "</strong></button>";}
                 };
                 string = string + "</div>";
-                console.log(string)
                 document.getElementById("panel").innerHTML = string;
               </script>
-            <div class="tab-content">
-              <div class="tab-pane" id="ad2">
-                <strong>Macro will go here !</strong>
-              </div>
-              <div class="tab-pane" id="ad1">
-                <strong>Macro will go here !</strong>
-              </div>
-              <div class="tab-pane active" id="ad0">
-                <form class="form-inline">
+              <div class="row-fluid">
+                <form class="form-inline" id="time_mark" action="">
                   <div class="input-append mr10">
                     <input id="appendedInput" type="text" placeholder="Time" >
                     <span class="add-on"><strong>Hours</strong></span>
@@ -95,15 +86,14 @@
                   </select>
                   <input type="text" placeholder="Tags or description" id="tags" class="mr10">
                   <label class="radio mr10">
-                    <input type="radio" name="Bill-type" id="" value="" checked> Billable                  
+                    <input type="radio" name="time" id="" value=""> Billable                  
                   </label>
                   <label class="radio mr10">
-                    <input type="radio" name="Bill-type" id="" value="">Non-Billable                  
+                    <input type="radio" name="time" id="" value="">Non-Billable                  
                   </label>
-                  <a href="" class="btn btn-info mr10"><strong>Log IT</strong></a>
-                </form>            
+                  <button class="btn btn-info mr10" type="submit"><strong>Log IT</strong></button>
+                </form>
               </div>
-            </div>
           </div>
         </div><!--/.nav-collapse -->
       </div>
@@ -111,21 +101,25 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
     <script type="text/javascript">
-	    $(document).ready(function(){
-        var billtype = ["Billable", "Non-Billable"];
-        $('#bill').typeahead({source: billtype});
-
+      $(document).ready(function(){
         var tagsdesc = ["Design","Coding","User", "Test Case", "Fork"];
         $('#tags').typeahead({source: tagsdesc});
-
-		    $(".btn-slide").click(function(){
-			    $("#panel").slideToggle("slow");
+        
+        $(".btn-slide").click(function(){
+          $("#panel").slideToggle("slow");
           $("i",this).toggleClass("icon-arrow-down icon-arrow-up");
-		    });
-	    });
+        });
+      });
+    </script>
+    <script>
+      $("#time_mark").submit(function() {
+        var time_mark = $('button[name="time"].active').val();
+        console.log($(this).serialize());
+        return false;
+      });
     </script>
   </body>
 </html>
